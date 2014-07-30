@@ -1,0 +1,20 @@
+rails g scaffold Contact type:references first_name:string last_name:string email:string primary_number:string secondary_number:string street_address1:string street_address2:string city:string state:string zip_code:string birth_date:string height:string weight:decimal
+
+rails g scaffold ContactType name:string description:text
+
+rails g scaffold Appointment name:string appointment__date:datetime notes:text
+
+rails g scaffold Reminder name:string reminder_date:datetime notes:text
+
+rails g scaffold Routine name:string date_created:datetime
+
+rails g scaffold Exercise name:string description:text
+
+rails g migration create_exercises_routines_joining_table
+ 
+ create_table :exercises_routines, id: false do |t|
+   t.belongs_to :exercise
+   t.belongs_to :routine
+ end
+ 
+ add_index(:exercises_routines, [:exercise_id, :routine_id], :unique => true)

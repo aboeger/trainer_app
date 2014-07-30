@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @contact.type %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @contact.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @contact.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <strong>Primary number:</strong>
+  <%= @contact.primary_number %>
+</p>
+
+<p>
+  <strong>Secondary number:</strong>
+  <%= @contact.secondary_number %>
+</p>
+
+<p>
+  <strong>Street address1:</strong>
+  <%= @contact.street_address1 %>
+</p>
+
+<p>
+  <strong>Street address2:</strong>
+  <%= @contact.street_address2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @contact.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @contact.state %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @contact.zip_code %>
+</p>
+
+<p>
+  <strong>Birth date:</strong>
+  <%= @contact.birth_date %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @contact.height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @contact.weight %>
+</p>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>
