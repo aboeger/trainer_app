@@ -117,3 +117,196 @@ Migrating to CreateExercisesRoutinesJoiningTable (20140730043721)
             FROM sqlite_temp_master
             WHERE name='index_exercises_routines_on_exercise_id_and_routine_id' AND type='index'
 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "contacts" ("created_at", "first_name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-07-30 05:09:26.998254"], ["first_name", "test"], ["updated_at", "2014-07-30 05:09:26.998254"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "contact_types" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-07-30 05:09:59.260574"], ["name", "customer"], ["updated_at", "2014-07-30 05:09:59.260574"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (8.5ms)[0m  UPDATE "contacts" SET "type_id" = ?, "updated_at" = ? WHERE "contacts"."id" = 1  [["type_id", 1], ["updated_at", "2014-07-30 05:10:09.036977"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "exercises" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-07-30 05:12:23.249689"], ["name", "squat"], ["updated_at", "2014-07-30 05:12:23.249689"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mRoutine Load (0.2ms)[0m  [1mSELECT "routines".* FROM "routines" INNER JOIN "exercises_routines" ON "routines"."id" = "exercises_routines"."routine_id" WHERE "exercises_routines"."exercise_id" = ?[0m  [["exercise_id", 1]]
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 23:12:41 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/erin/.rvm/gems/ruby-1.9.3-p448/gems/railties-4.1.4/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 39ms (Views: 25.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2014-07-29 23:12:51 -0600
+
+ActionController::RoutingError (No route matches [GET] "/contact"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/erin/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/erin/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/erin/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/erin/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/erin/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /Users/erin/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.8ms)
+  Rendered /Users/erin/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (35.3ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2014-07-29 23:13:07 -0600
+Processing by ContactsController#index as HTML
+  [1m[35mContact Load (0.2ms)[0m  SELECT "contacts".* FROM "contacts"
+  [1m[36mContactType Load (0.2ms)[0m  [1mSELECT  "contact_types".* FROM "contact_types"  WHERE "contact_types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered contacts/index.html.erb within layouts/application (47.6ms)
+Completed 200 OK in 1138ms (Views: 1132.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/appointments.css?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/exercises.css?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/reminders.css?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/contact_types.css?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/routines.css?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/contact_types.js?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/appointments.js?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/exercises.js?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/routines.js?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/reminders.js?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-29 23:13:08 -0600
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-07-29 23:13:14 -0600
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (12.7ms)
+  Rendered contacts/new.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+Processing by ContactsController#new as HTML
+  [1m[35mContactType Load (0.1ms)[0m  SELECT "contact_types".* FROM "contact_types"
+  Rendered contacts/_form.html.erb (44.0ms)
+  Rendered contacts/new.html.erb within layouts/application (44.9ms)
+Completed 200 OK in 53ms (Views: 49.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/appointments.css?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/exercises.css?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/routines.css?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/contact_types.css?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/reminders.css?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/appointments.js?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/contact_types.js?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/routines.js?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/exercises.js?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/reminders.js?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-29 23:16:14 -0600
+
+
+Started GET "/contacts" for 127.0.0.1 at 2014-07-29 23:17:19 -0600
+Processing by ContactsController#index as HTML
+  [1m[36mContact Load (0.2ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  [1m[35mContactType Load (0.1ms)[0m  SELECT  "contact_types".* FROM "contact_types"  WHERE "contact_types"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered contacts/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.4ms)

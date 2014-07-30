@@ -22,5 +22,5 @@
 #
 
 class Contact < ActiveRecord::Base
-  belongs_to :type
+  belongs_to :type, class_name: "ContactType"
 end
