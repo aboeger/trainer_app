@@ -25,3 +25,4 @@ contact_types.each do |type|
     new_type.save!
   end
 end
+
