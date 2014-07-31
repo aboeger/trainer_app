@@ -5,6 +5,7 @@ class RoutinesController < ApplicationController
   # GET /routines.json
   def index
     @routines = Routine.all
+     @title = "Routines | Trainer App"
   end
 
   # GET /routines/1

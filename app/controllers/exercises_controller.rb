@@ -5,6 +5,7 @@ class ExercisesController < ApplicationController
   # GET /exercises.json
   def index
     @exercises = Exercise.all
+     @title = "Exercises | Trainer App"
   end
 
   # GET /exercises/1
