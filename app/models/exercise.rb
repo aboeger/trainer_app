@@ -7,9 +7,10 @@
 #  description :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  group_id    :integer
 #
 
 class Exercise < ActiveRecord::Base
   has_and_belongs_to_many :routines
-  belongs_to :type, class_name: "ExerciseGroup"
+  belongs_to :group, class_name: "ExerciseGroup"
 end
