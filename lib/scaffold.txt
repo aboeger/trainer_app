@@ -10,6 +10,8 @@ rails g scaffold Routine name:string date_created:datetime
 
 rails g scaffold Exercise name:string description:text
 
+rails g scaffold ExerciseGroup name:string description:text
+
 rails g migration create_exercises_routines_joining_table
  
  create_table :exercises_routines, id: false do |t|

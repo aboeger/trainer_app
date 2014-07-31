@@ -11,4 +11,5 @@
 
 class Exercise < ActiveRecord::Base
   has_and_belongs_to_many :routines
+  belongs_to :type, class_name: "ExerciseGroup"
 end
