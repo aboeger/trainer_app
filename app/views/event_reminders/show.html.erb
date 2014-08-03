@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event_reminder.title %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @event_reminder.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @event_reminder.end %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @event_reminder.notes %>
+</p>
+
+<%= link_to 'Edit', edit_event_reminder_path(@event_reminder) %> |
+<%= link_to 'Back', event_reminders_path %>

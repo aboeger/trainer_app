@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :event_reminders
+
+  resources :event_appointments
+
   resources :exercise_groups
 
   get 'home/index'

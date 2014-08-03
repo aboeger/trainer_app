@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140731040855) do
+ActiveRecord::Schema.define(version: 20140803010325) do
 
   create_table "appointments", force: true do |t|
     t.string   "name"
@@ -48,6 +48,24 @@ ActiveRecord::Schema.define(version: 20140731040855) do
   end
 
   add_index "contacts", ["type_id"], name: "index_contacts_on_type_id"
+
+  create_table "event_appointments", force: true do |t|
+    t.string   "title"
+    t.datetime "start"
+    t.datetime "end"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "event_reminders", force: true do |t|
+    t.string   "title"
+    t.datetime "start"
+    t.datetime "end"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "exercise_groups", force: true do |t|
     t.string   "name"

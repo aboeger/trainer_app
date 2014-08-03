@@ -6,6 +6,10 @@ rails g scaffold Appointment name:string appointment__date:datetime notes:text
 
 rails g scaffold Reminder name:string reminder_date:datetime notes:text
 
+rails g scaffold EventAppointment title:string start:datetime end:datetime notes:text
+
+rails g scaffold EventReminder title:string start:datetime end:datetime notes:text
+
 rails g scaffold Routine name:string date_created:datetime
 
 rails g scaffold Exercise name:string description:text
