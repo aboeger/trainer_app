@@ -11,10 +11,6 @@ Rails.application.routes.draw do
 
   resources :routines
 
-  resources :reminders
-
-  resources :appointments
-
   resources :contact_types
 
   resources :contacts
