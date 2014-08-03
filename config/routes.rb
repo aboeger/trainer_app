@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   resources :exercise_groups
 
-  get 'home/index'
-
   resources :exercises
 
   resources :routines
@@ -20,6 +18,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  
+  get 'home/index'
+  
+  get 'home/schedule'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

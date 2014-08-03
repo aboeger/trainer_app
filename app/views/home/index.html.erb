@@ -1,33 +1,6 @@
-<head><link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
-<script src='lib/jquery.min.js'></script>
-<script src='lib/moment.min.js'></script>
-<script src='fullcalendar/fullcalendar.js'></script>
-<script>$(document).ready(function() {
-
-    // page is now ready, initialize the calendar...
-
-    $('#calendar').fullCalendar({
-        eventSources: [
-		{
-			url: '/event_appointments.json',
-			color: 'yellow',
-			textColor: 'black'
-		},
-		{
-			url: '/event_reminders.json',
-			color: 'red',
-			textColor: 'black'
-		}
-
-		]
-			
-
-    })
-
-});</script>
-</head>
 
 <h1>Home</h1>
 <p>Home Page</p>
 
-<div id='calendar'></div>
+<%= render 'calender' %>
+
